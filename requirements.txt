@@ -39,3 +39,4 @@ ipykernel>=6.25.0
 # Optional: TensorFlow for LSTM models
 # Note: Install separately if needed: pip install tensorflow
 # tensorflow>=2.15.0
+fpdf
