@@ -1,0 +1,13 @@
+{
+    "R2_Score": 0.9987,
+    "Accuracy_MAPE": 97.56,
+    "Classification_Accuracy": 94.85,
+    "ROC_AUC": 0.9992,
+    "best_model": "Random Forest Regressor",
+    "trained_at": "2026-02-28 21:31:25.280656",
+    "segments": {
+        "High": 3334,
+        "Medium": 3333,
+        "Low": 3333
+    }
+}

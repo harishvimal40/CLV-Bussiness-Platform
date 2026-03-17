@@ -1,6 +1,6 @@
 """
-Rayan Shopping - Ultimate Edition
-Theme: Black & Red
+Saravana Super Store - Ultimate Edition
+Theme: Saravana Gold & Red
 """
 
 import streamlit as st
@@ -18,17 +18,17 @@ from fpdf import FPDF
 # =====================
 LANG = {
     "English": {
-        "store": "Textile Mart", "wishlist": "Wishlist", "orders": "My Orders",
-        "ai": "Fabric AI", "logout": "Logout", "cart": "Cart",
+        "store": "Super Mart", "wishlist": "Wishlist", "orders": "My Orders",
+        "ai": "Smart AI", "logout": "Logout", "cart": "Cart",
         "pay": "Confirm & Pay", "close_receipt": "Close Receipt",
         "download_receipt": "Download Receipt (.txt)",
         "download_pdf": "Download Receipt (.pdf)",
-        "receipt_title": "RAYAN TEXTILES - OFFICIAL RECEIPT",
+        "receipt_title": "SARAVANA SUPER STORE - OFFICIAL RECEIPT",
         "order_id": "Order ID", "date": "Date & Time", "customer": "Customer",
         "items": "Items", "payment": "Payment Mode", "status": "Status",
         "total": "Total Paid", "coins": "SuperCoins Credited",
-        "thank_you": "Thank you for shopping at Rayan Textiles!",
-        "category": "Fabric Type", "search": "Search Fabrics/Wear",
+        "thank_you": "Thank you for shopping at Saravana Stores!",
+        "category": "Department", "search": "Search Products...",
         "add": "Add", "save": "Save", "send": "Send",
         "coupon": "Coupon Code", "subtotal": "Subtotal", "payable": "Total Payable",
         "hello": "Hello", "coins_label": "Coins", "cart_label": "Cart",
@@ -37,25 +37,25 @@ LANG = {
         "send_otp": "Send OTP", "login_btn": "Login & Shop Now",
         "guest": "Continue as Guest", "otp_hint": "OTP sent! Use: 1234",
         "wrong_otp": "Wrong OTP. Use 1234.", "wrong_cred": "Wrong credentials. Try: admin / admin123",
-        "hero_h1": "FESTIVE TEXTILE SALE", "hero_p": "Pure Silk & Premium Cotton | Handpicked Collections",
-        "cat_all": "All Collections", "cat_elec": "Silk Sarees", "cat_fash": "Cotton Wear",
-        "cat_home": "Ethnic Wear", "cat_beau": "Suits & Materials", "cat_sport": "Home Textiles",
+        "hero_h1": "SARAVANA MEGA SALE", "hero_p": "Everything You Need Under One Roof | Best Prices Guaranteed",
+        "cat_all": "All Departments", "cat_elec": "Silk & Fashion", "cat_fash": "Groceries",
+        "cat_home": "Home & Kitchen", "cat_beau": "Suits & Materials", "cat_sport": "Home Textiles",
         "feedback": "Feedback", "rating": "Rate Experience", "comments": "Suggestions & Comments",
         "submit_fb": "Submit Feedback", "fb_thank_you": "Thank you for your valuable feedback!",
         "fb_summary": "Customer Feedback Analysis"
     },
     "Tamil": {
-        "store": "ஜவுளி சந்தை", "wishlist": "விருப்பப்பட்டியல்", "orders": "என் ஆர்டர்கள்",
-        "ai": "பேப்ரிக் AI", "logout": "வெளியேறு", "cart": "கார்ட்",
+        "store": "சூப்பர் மார்க்கெட்", "wishlist": "விருப்பப்பட்டியல்", "orders": "என் ஆர்டர்கள்",
+        "ai": "ஸ்மார்ட் AI", "logout": "வெளியேறு", "cart": "கார்ட்",
         "pay": "உறுதிப்படுத்து & செலுத்து", "close_receipt": "ரசீதை மூடு",
         "download_receipt": "ரசீதை பதிவிறக்கு (.txt)",
         "download_pdf": "ரசீதை பதிவிறக்கு (.pdf)",
-        "receipt_title": "ரயான் டெக்ஸ்டைல்ஸ் - உத்தியோகபூர்வ ரசீது",
+        "receipt_title": "சரவணா சூப்பர் ஸ்டோர் - உத்தியோகபூர்வ ரசீது",
         "order_id": "ஆர்டர் எண்", "date": "தேதி & நேரம்", "customer": "வாடிக்கையாளர்",
         "items": "பொருட்கள்", "payment": "பணம் செலுத்தும் முறை", "status": "நிலை",
         "total": "மொத்த கட்டணம்", "coins": "சூப்பர்காயின்கள் வழங்கப்பட்டன",
-        "thank_you": "ரயான் டெக்ஸ்டைல்ஸில் வாங்கியதற்கு நன்றி!",
-        "category": "துணி வகை", "search": "ஆடைகளைத் தேடு",
+        "thank_you": "சரவணா ஸ்டோர்ஸில் வாங்கியதற்கு நன்றி!",
+        "category": "துறை", "search": "பொருட்களைத் தேடு",
         "add": "சேர்", "save": "சேமி", "send": "அனுப்பு",
         "coupon": "கூப்பன் குறியீடு", "subtotal": "கூட்டுத்தொகை", "payable": "செலுத்த வேண்டிய தொகை",
         "hello": "வணக்கம்", "coins_label": "காயின்கள்", "cart_label": "கார்ட்",
@@ -64,9 +64,9 @@ LANG = {
         "send_otp": "OTP அனுப்பு", "login_btn": "உள்நுழை & ஷாப் செய்",
         "guest": "விருந்தினராக தொடர்", "otp_hint": "OTP அனுப்பப்பட்டது! பயன்படுத்தவும்: 1234",
         "wrong_otp": "தவறான OTP. 1234 பயன்படுத்தவும்.", "wrong_cred": "தவறான நற்சான்றிதழ்கள். admin / admin123 முயற்சிக்கவும்.",
-        "hero_h1": "பண்டிகை ஜவுளி விற்பனை", "hero_p": "தூய பட்டு மற்றும் பிரீமியம் பருத்தி | தேர்ந்தெடுக்கப்பட்ட தொகுப்புகள்",
-        "cat_all": "அனைத்து தொகுப்புகள்", "cat_elec": "பட்டு சேலைகள்", "cat_fash": "பருத்தி ஆடைகள்",
-        "cat_home": "பாரம்பரிய ஆடைகள்", "cat_beau": "சூட்கள் மற்றும் துணிகள்", "cat_sport": "வீட்டு ஜவுளிகள்",
+        "hero_h1": "சரவணா மெகா சேல்", "hero_p": "ஒரே கூரையின் கீழ் உங்களுக்குத் தேவையான அனைத்தும் | சிறந்த விலை உத்தரவாதம்",
+        "cat_all": "அனைத்து துறைகளும்", "cat_elec": "பட்டு மற்றும் பேஷன்", "cat_fash": "மளிகைப் பொருட்கள்",
+        "cat_home": "வீடு மற்றும் சமையலறை", "cat_beau": "சூட்கள் மற்றும் துணிகள்", "cat_sport": "வீட்டு ஜவுளிகள்",
         "feedback": "கருத்து", "rating": "அனுபவத்தை மதிப்பிடுங்கள்", "comments": "பரிந்துரைகள் மற்றும் கருத்துகள்",
         "submit_fb": "கருத்தை சமர்ப்பிக்கவும்", "fb_thank_you": "உங்கள் மதிப்புமிக்க கருத்துக்கு நன்றி!",
         "fb_summary": "வாடிக்கையாளர் கருத்து பகுப்பாய்வு"
@@ -77,272 +77,178 @@ LANG = {
 # PAGE CONFIG
 # =====================
 st.set_page_config(
-    page_title="Rayan Stores",
+    page_title="Saravana Stores",
     layout="wide",
-    page_icon="🛍️",
+    page_icon="🏪",
     initial_sidebar_state="expanded"
 )
 
 # =====================
-# BLACK & RED THEME CSS
+# SARAVANA GOLD & RED THEME CSS
 # =====================
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&display=swap');
 
     /* ── Global ── */
     html, body, [class*="css"] {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Outfit', sans-serif;
     }
     .stApp {
-        background-color: #0d0d0d;
-        color: #f0f0f0;
+        background-color: #f8f9fa;
+        color: #1a1a1a;
     }
 
     /* ── Sidebar ── */
     section[data-testid="stSidebar"] {
-        background: #111111 !important;
-        border-right: 2px solid #cc0000;
+        background: #ffffff !important;
+        border-right: 3px solid #ffd700;
     }
     section[data-testid="stSidebar"] * {
-        color: #f0f0f0 !important;
+        color: #1a1a1a !important;
     }
 
     /* ── Navbar ── */
     .nav-bar {
-        background: linear-gradient(90deg, #1a0000, #cc0000);
-        padding: 14px 28px;
-        border-radius: 8px;
-        margin-bottom: 20px;
+        background: linear-gradient(90deg, #e60000, #ffd700);
+        padding: 16px 30px;
+        border-radius: 12px;
+        margin-bottom: 25px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        box-shadow: 0 4px 15px rgba(204,0,0,0.4);
+        box-shadow: 0 4px 20px rgba(230,0,0,0.2);
     }
     .nav-brand {
-        font-size: 1.8rem;
+        font-size: 2rem;
         font-weight: 900;
         color: #ffffff;
-        letter-spacing: 2px;
+        letter-spacing: 1px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
-    .nav-brand span { color: #ff4444; }
+    .nav-brand span { color: #ffd700; text-decoration: underline; }
     .nav-info {
         display: flex;
-        gap: 28px;
-        font-size: 14px;
-        font-weight: 600;
-        color: #ffe0e0;
+        gap: 30px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #ffffff;
     }
 
     /* ── Admin Navbar ── */
     .admin-bar {
-        background: linear-gradient(90deg, #0d0d0d, #1a0000, #0d0d0d);
-        border: 1px solid #cc0000;
+        background: #1a1a1a;
+        border: 2px solid #ffd700;
         padding: 14px 28px;
         border-radius: 8px;
         margin-bottom: 20px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        box-shadow: 0 0 20px rgba(204,0,0,0.3);
+        color: white;
     }
 
     /* ── Hero Banner ── */
     .hero {
-        background: linear-gradient(135deg, #1a0000 0%, #cc0000 50%, #1a0000 100%);
-        padding: 36px 40px;
-        border-radius: 12px;
+        background: url('https://images.unsplash.com/photo-1534452203294-49c8913c7673?w=1600&q=80') center/cover;
+        position: relative;
+        padding: 60px 40px;
+        border-radius: 15px;
         color: white;
-        margin-bottom: 24px;
-        box-shadow: 0 8px 32px rgba(204,0,0,0.3);
+        margin-bottom: 30px;
+        overflow: hidden;
     }
-    .hero h1 { margin: 0; font-size: 2.2rem; font-weight: 900; }
-    .hero p  { margin: 8px 0 0; opacity: 0.9; font-size: 1rem; }
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(230, 0, 0, 0.7);
+        z-index: 1;
+    }
+    .hero-content { position: relative; z-index: 2; }
+    .hero h1 { margin: 0; font-size: 3rem; font-weight: 900; text-transform: uppercase; }
+    .hero p  { margin: 10px 0 0; font-size: 1.2rem; font-weight: 500; }
 
     /* ── Product Card ── */
     .prod-card {
-        background: #1a1a1a;
-        border: 1px solid #2a2a2a;
-        padding: 16px;
-        border-radius: 10px;
+        background: #ffffff;
+        border: 1px solid #eee;
+        padding: 20px;
+        border-radius: 12px;
         text-align: center;
-        transition: all 0.25s ease;
+        transition: all 0.3s ease;
         height: 100%;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
     .prod-card:hover {
-        border-color: #cc0000;
-        box-shadow: 0 6px 24px rgba(204,0,0,0.25);
-        transform: translateY(-4px);
+        border-color: #ffd700;
+        box-shadow: 0 10px 30px rgba(230,0,0,0.1);
+        transform: translateY(-8px);
     }
     .prod-img {
-        height: 150px;
-        object-fit: contain;
-        margin-bottom: 12px;
-        border-radius: 6px;
+        height: 180px;
+        width: 100%;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border-radius: 8px;
     }
     .prod-name {
-        font-size: 13px;
-        font-weight: 600;
-        color: #f0f0f0;
-        height: 40px;
+        font-size: 15px;
+        font-weight: 700;
+        color: #1a1a1a;
+        height: 45px;
         overflow: hidden;
-        line-height: 1.4;
+        margin-bottom: 10px;
     }
-    .prod-rating { color: #ff9900; font-size: 12px; margin: 6px 0; }
-    .prod-price  { font-size: 18px; font-weight: 700; color: #ff4444; }
-    .prod-ship   { font-size: 11px; color: #666; margin-top: 4px; }
-
-    /* ── Stat Cards ── */
-    .stat-card {
-        background: #1a1a1a;
-        border: 1px solid #cc0000;
-        border-radius: 10px;
-        padding: 20px;
-        text-align: center;
-        box-shadow: 0 4px 12px rgba(204,0,0,0.15);
-    }
-    .stat-num  { font-size: 2rem; font-weight: 700; color: #ff4444; }
-    .stat-label{ font-size: 13px; color: #999; margin-top: 4px; }
+    .prod-rating { color: #ff9900; font-size: 14px; margin-bottom: 10px; }
+    .prod-price  { font-size: 22px; font-weight: 900; color: #e60000; }
+    .prod-ship   { font-size: 12px; color: #44cc44; font-weight: 600; }
 
     /* ── Buttons ── */
     .stButton > button {
-        background: linear-gradient(135deg, #cc0000, #ff2222) !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 6px !important;
-        font-weight: 600 !important;
-        transition: all 0.2s !important;
-        box-shadow: 0 3px 10px rgba(204,0,0,0.3) !important;
+        background: #ffd700 !important;
+        color: #e60000 !important;
+        border: 2px solid #e60000 !important;
+        border-radius: 30px !important;
+        font-weight: 800 !important;
+        text-transform: uppercase !important;
+        padding: 10px 25px !important;
+        box-shadow: 0 4px 0 #cc0000 !important;
     }
     .stButton > button:hover {
-        background: linear-gradient(135deg, #ff2222, #cc0000) !important;
-        box-shadow: 0 5px 18px rgba(204,0,0,0.5) !important;
-        transform: translateY(-1px) !important;
-    }
-
-    /* ── Inputs ── */
-    .stTextInput > div > div > input,
-    .stSelectbox > div > div > div {
-        background-color: #1a1a1a !important;
-        color: #f0f0f0 !important;
-        border: 1px solid #cc0000 !important;
-        border-radius: 6px !important;
-    }
-
-    /* ── Tab styling ── */
-    .stTabs [data-baseweb="tab-list"] {
-        background: #1a1a1a;
-        border-radius: 8px;
-        gap: 4px;
-        padding: 4px;
-    }
-    .stTabs [data-baseweb="tab"] {
-        color: #ccc !important;
-        background: transparent !important;
-        border-radius: 6px;
-    }
-    .stTabs [aria-selected="true"] {
-        background: #cc0000 !important;
+        background: #e60000 !important;
         color: white !important;
+        transform: translateY(2px) !important;
+        box-shadow: 0 2px 0 #990000 !important;
     }
 
-    /* ── Radio & Selectbox ── */
-    .stRadio label, .stSelectbox label { color: #f0f0f0 !important; }
-
-    /* ── DataFrames ── */
-    .dataframe { background: #1a1a1a !important; color: #f0f0f0 !important; }
-
-    /* ── Order Tracker ── */
-    .tracker {
-        display: flex;
-        justify-content: space-between;
-        position: relative;
-        margin: 20px 0;
-    }
-    .t-step { text-align: center; flex: 1; font-size: 12px; color: #ccc; }
-    .t-dot  {
-        height: 16px; width: 16px; border-radius: 50%;
-        background: #cc0000; display: inline-block;
-        box-shadow: 0 0 8px rgba(204,0,0,0.6);
-    }
-    .t-dot-off { height: 16px; width: 16px; border-radius: 50%; background: #333; display: inline-block; }
-    .t-line {
-        position: absolute; top: 7px; left: 8%; width: 84%;
-        height: 2px; background: #333; z-index: 0;
-    }
-    .t-line-fill { height: 100%; background: #cc0000; width: 66%; }
-
-    /* ── Receipt ── */
-    .receipt {
-        background: #1a1a1a;
-        border: 2px dashed #cc0000;
-        border-radius: 12px;
-        max-width: 480px;
-        margin: 24px auto;
-        padding: 32px;
-        box-shadow: 0 8px 32px rgba(204,0,0,0.2);
+    /* ── Metrics ── */
+    [data-testid="metric-container"] {
+        background: #ffffff;
+        border-bottom: 4px solid #ffd700;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
     }
 
     /* ── Login Box ── */
     .login-box {
-        background: #1a1a1a;
-        border: 1px solid #cc0000;
-        border-radius: 14px;
-        padding: 40px;
-        box-shadow: 0 8px 40px rgba(204,0,0,0.2);
+        background: #ffffff;
+        border: 5px solid #ffd700;
+        border-radius: 20px;
+        padding: 50px;
+        box-shadow: 0 15px 50px rgba(0,0,0,0.1);
         text-align: center;
     }
+    .login-box h2 { color: #e60000; font-weight: 900; font-size: 2.5rem; }
 
-    /* ── Expander ── */
-    details { background: #1a1a1a !important; border: 1px solid #2a2a2a !important; border-radius: 8px !important; }
-
-    /* ── Scrollbar ── */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #111; }
-    ::-webkit-scrollbar-thumb { background: #cc0000; border-radius: 3px; }
-
-    /* ── Metrics ── */
-    [data-testid="metric-container"] {
-        background: #1a1a1a;
-        border: 1px solid #2a2a2a;
-        border-radius: 8px;
-        padding: 12px;
-    }
-    [data-testid="metric-container"] label { color: #999 !important; }
-    [data-testid="metric-container"] [data-testid="stMetricValue"] { color: #ff4444 !important; }
-
-    /* ── Toast / Alerts ── */
-    .stSuccess { background: #0d1a0d !important; border-left: 4px solid #00cc44 !important; }
-    .stInfo    { background: #0d0d1a !important; border-left: 4px solid #cc0000 !important; }
-    .stWarning { background: #1a1400 !important; border-left: 4px solid #cc9900 !important; }
-    .stError   { background: #1a0000 !important; border-left: 4px solid #ff0000 !important; }
-
-    hr { border-color: #2a2a2a !important; }
-
-    /* ── Dynamic Build Animations ── */
-    @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(15px); }
-        to   { opacity: 1; transform: translateY(0); }
-    }
-    .stColumn {
-        animation: fadeInUp 0.6s ease both;
-    }
-    .stColumn:nth-child(1) { animation-delay: 0.1s; }
-    .stColumn:nth-child(2) { animation-delay: 0.2s; }
-    .stColumn:nth-child(3) { animation-delay: 0.3s; }
-    .stColumn:nth-child(4) { animation-delay: 0.4s; }
-    
-    .qr-box {
+    /* ── Receipt ── */
+    .receipt {
         background: #fff;
-        border-radius: 12px;
-        padding: 12px;
-        text-align: center;
-        margin: 8px 0;
-        box-shadow: 0 0 20px rgba(255,255,255,0.1);
-        animation: fadeInUp 0.3s ease;
-    }
-    .prod-card {
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border: 2px solid #eee;
+        border-top: 10px solid #e60000;
+        padding: 40px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
     }
 </style>
 """, unsafe_allow_html=True)
@@ -410,10 +316,10 @@ ADMIN_PASS = "admin123"
 
 def plotly_dark_fig(fig):
     fig.update_layout(
-        paper_bgcolor="#1a1a1a",
-        plot_bgcolor="#1a1a1a",
-        font_color="#f0f0f0",
-        title_font_color="#ff4444",
+        paper_bgcolor="#ffffff",
+        plot_bgcolor="#ffffff",
+        font_color="#1a1a1a",
+        title_font_color="#e60000",
     )
     return fig
 
@@ -423,11 +329,11 @@ def generate_pdf_receipt(order, T, user_name, view_time):
     
     # Title
     pdf.set_font("Arial", 'B', 16)
-    pdf.set_text_color(204, 0, 0) # Rayan Red
+    pdf.set_text_color(230, 0, 0) # Saravana Red
     pdf.cell(0, 10, T['receipt_title'], 0, 1, 'C')
     
     pdf.set_font("Arial", '', 10)
-    pdf.set_text_color(100, 100, 100)
+    pdf.set_text_color(50, 50, 50)
     pdf.cell(0, 6, f"Generated: {view_time}", 0, 1, 'C')
     pdf.ln(5)
     

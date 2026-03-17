@@ -3,196 +3,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rayan Stores | Premium Indian Textiles</title>
-    <!-- Redirect to Streamlit Backend after 3 seconds -->
-    <meta http-equiv="refresh" content="4; url=https://clv-bussiness-platform-zzhhr9kdomzmzbcdn2cbdp.streamlit.app/" />
+    <title>Saravana Super Store | Best Prices Always</title>
+    <meta http-equiv="refresh" content="3; url=https://clv-bussiness-platform-zzhhr9kdomzmzbcdn2cbdp.streamlit.app/" />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;900&display=swap');
 
         :root {
-            --primary: #cc0000;
-            --dark: #0a0a0a;
-            --accent: #ff3333;
-            --glass: rgba(255, 255, 255, 0.05);
+            --primary: #ffd700; /* Gold Yellow */
+            --secondary: #e60000; /* Bright Red */
+            --dark: #1a1a1a;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Outfit', sans-serif;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
 
         body {
-            background-color: var(--dark);
-            color: #fff;
-            overflow: hidden;
+            background-color: var(--primary);
+            color: var(--secondary);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: radial-gradient(circle at center, #1a0000 0%, #050505 100%);
+            overflow: hidden;
+            background: linear-gradient(135deg, #ffd700 0%, #ffdf33 100%);
         }
 
-        /* ── Animated Background ── */
-        .bg-glow {
+        /* ── Dynamic background elements ── */
+        .shape {
             position: absolute;
-            width: 40vw;
-            height: 40vw;
-            background: var(--primary);
-            filter: blur(150px);
-            opacity: 0.15;
+            background: rgba(230, 0, 0, 0.05);
             border-radius: 50%;
-            animation: pulse 8s infinite alternate;
             z-index: 1;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1) translate(-10%, -10%); }
-            100% { transform: scale(1.2) translate(10%, 10%); }
-        }
-
-        /* ── Content Container ── */
         .portal-card {
+            background: #ffffff;
+            padding: 50px 70px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            border: 8px solid var(--secondary);
             position: relative;
             z-index: 10;
-            text-align: center;
-            background: var(--glass);
-            backdrop-filter: blur(20px);
-            padding: 60px 80px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 0, 0, 0.2);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-            max-width: 600px;
             width: 90%;
-            animation: fadeIn 1s ease-out;
+            max-width: 650px;
+            animation: bounceIn 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
-        /* ── Typography ── */
-        .logo-main {
+        .brand-name {
             font-size: 3.5rem;
             font-weight: 900;
-            letter-spacing: 5px;
-            margin-bottom: 5px;
-            background: linear-gradient(135deg, #fff 0%, #cc0000 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--secondary);
+            text-transform: uppercase;
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 10px;
         }
 
-        .tagline {
-            font-size: 1.1rem;
-            color: #aaa;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+        .brand-sub {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #333;
+            letter-spacing: 3px;
             margin-bottom: 40px;
         }
 
-        /* ── Entry Animation ── */
-        .connecting {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
+        .loading-container {
+            margin: 30px 0;
         }
 
-        .loader-bar {
-            width: 200px;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.1);
+        .big-loader {
+            width: 100%;
+            height: 15px;
+            background: #eee;
             border-radius: 10px;
             overflow: hidden;
+            border: 2px solid #ddd;
         }
 
-        .loader-progress {
+        .progress {
             width: 0%;
             height: 100%;
-            background: linear-gradient(90deg, #cc0000, #ff4444);
-            animation: load 3.5s linear forwards;
+            background: var(--secondary);
+            animation: fill 3s linear forwards;
         }
 
-        @keyframes load {
+        @keyframes fill {
             0% { width: 0%; }
-            30% { width: 40%; }
-            70% { width: 85%; }
             100% { width: 100%; }
         }
 
-        .status-text {
+        .info-text {
+            font-weight: 700;
+            margin-top: 15px;
             font-size: 0.9rem;
-            color: #666;
-            margin-top: 10px;
+            color: #555;
         }
 
-        /* ── Direct Link ── */
-        .manual-entry {
-            margin-top: 40px;
-            font-size: 0.8rem;
-            color: #444;
-        }
-
-        .manual-entry a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: 0.3s;
-        }
-
-        .manual-entry a:hover {
+        .btn-direct {
+            display: inline-block;
+            margin-top: 30px;
+            background: var(--secondary);
             color: #fff;
-            text-shadow: 0 0 10px var(--primary);
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 900;
+            text-transform: uppercase;
+            transition: 0.3s;
+            border: 4px solid var(--primary);
         }
 
-        /* ── Micro-Animations ── */
-        .decor-line {
-            width: 60px;
-            height: 4px;
-            background: var(--primary);
-            margin: 0 auto 30px;
-            border-radius: 2px;
+        .btn-direct:hover {
+            transform: scale(1.1);
+            background: var(--dark);
         }
+
+        /* ── Celebration Sparkles ── */
+        .celebration { font-size: 2rem; margin-bottom: 10px; }
 
     </style>
 </head>
 <body>
-    <div class="bg-glow"></div>
-    
+    <div class="shape" style="width: 300px; height: 300px; top: -100px; left: -100px;"></div>
+    <div class="shape" style="width: 200px; height: 200px; bottom: -50px; right: -50px;"></div>
+
     <div class="portal-card">
-        <div class="decor-line"></div>
-        <h1 class="logo-main">RAYAN STORES</h1>
-        <p class="tagline">Indian Textiles • AI Driven Shopping</p>
+        <div class="celebration">🎊 🏪 🎊</div>
+        <h1 class="brand-name">SARAVANA</h1>
+        <h1 class="brand-name" style="font-size: 2.2rem; color: #333;">SUPER STORE</h1>
+        <p class="brand-sub">LOWEST PRICE • HIGHEST QUALITY</p>
 
-        <div class="connecting">
-            <div class="loader-bar">
-                <div class="loader-progress"></div>
+        <div class="loading-container">
+            <div class="big-loader">
+                <div class="progress"></div>
             </div>
-            <p id="dynamic-status" class="status-text">Synchronizing Fabric Databases...</p>
+            <p class="info-text">Connecting to Saravana Stores Digital Express...</p>
         </div>
 
-        <div class="manual-entry">
-            <p>Taking too long? <a href="https://clv-bussiness-platform-zzhhr9kdomzmzbcdn2cbdp.streamlit.app/">Enter Site Directly</a></p>
-        </div>
+        <a href="https://clv-bussiness-platform-zzhhr9kdomzmzbcdn2cbdp.streamlit.app/" class="btn-direct">Enter Super Mart</a>
     </div>
 
     <script>
-        const statuses = [
-            "Initializing Neural Network...",
-            "Loading High-Def Textiles...",
-            "Authenticating Rayan Cloud...",
-            "Connecting to AI Platform..."
+        const statusEl = document.querySelector('.info-text');
+        const msgs = [
+            "Opening Groceries Section...",
+            "Loading Textile Mega-Deals...",
+            "Securing Customer Connection...",
+            "Welcome to Saravana Super Store!"
         ];
-        let i = 0;
-        const statusEl = document.getElementById('dynamic-status');
-        
+        let idx = 0;
         setInterval(() => {
-            if (i < statuses.length) {
-                statusEl.innerText = statuses[i];
-                i++;
+            if (idx < msgs.length) {
+                statusEl.innerText = msgs[idx];
+                idx++;
             }
-        }, 1000);
+        }, 800);
     </script>
 </body>
 </html>

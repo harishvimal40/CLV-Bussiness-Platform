@@ -1,0 +1,16 @@
+{
+    "LogisticRegression": {
+        "Accuracy": 0.7915,
+        "Precision": 0.7692,
+        "Recall": 0.7977,
+        "F1-Score": 0.7832,
+        "AUC-ROC": 0.8781
+    },
+    "RandomForest": {
+        "Accuracy": 0.811,
+        "Precision": 0.7882,
+        "Recall": 0.8199,
+        "F1-Score": 0.8037,
+        "AUC-ROC": 0.8975
+    }
+}

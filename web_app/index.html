@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayan Shopping</title>
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- === LOGIN SCREEN (Overlay) === -->
+    <div id="login-overlay" class="login-overlay">
+        <div class="login-box">
+            <div class="login-left">
+                <h2>Login</h2>
+                <p>Get access to your Orders, Wishlist and Recommendations</p>
+                <div class="login-brand">RAYAN</div>
+            </div>
+            <div class="login-right">
+                <div class="input-group">
+                    <input type="text" id="login-email" required>
+                    <label>Enter Email / Mobile Number</label>
+                </div>
+                <div class="otp-group">
+                    <button onclick="sendOtp()" id="otp-btn">Request OTP</button>
+                </div>
+                <div class="input-group hidden" id="otp-section">
+                    <input type="text" id="login-otp">
+                    <label>Enter OTP</label>
+                </div>
+                <p class="terms">By continuing, you agree to Rayan's Terms of Use and Privacy Policy.</p>
+                <button class="login-submit-btn" onclick="verifyLogin()">Login</button>
+                <button class="guest-btn" onclick="guestLogin()">New directly to Store</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- === MAIN APP === -->
+    <div id="main-app" class="hidden">
+
+        <!-- NAVBAR -->
+        <nav class="navbar">
+            <div class="logo-section">
+                <div class="brand-logo">RAYAN<span>MALL</span></div>
+                <div class="explore-plus">Explore <span class="plus">Plus</span> <i class="fa-solid fa-star"></i></div>
+            </div>
+
+            <div class="search-bar">
+                <input type="text" placeholder="Search for products, brands and more"
+                    oninput="handleSearch(this.value)">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div class="search-dropdown hidden" id="search-results"></div>
+            </div>
+
+            <div class="nav-actions">
+                <button class="login-btn-nav" id="user-display">Login</button>
+                <div class="dropdown">
+                    <span>More <i class="fa-solid fa-angle-down"></i></span>
+                    <div class="dropdown-content">
+                        <a href="#"><i class="fa-solid fa-bell"></i> Notifications</a>
+                        <a href="#"><i class="fa-solid fa-headset"></i> 24x7 Customer Care</a>
+                        <a href="#"><i class="fa-solid fa-arrow-trend-up"></i> Advertise</a>
+                        <a href="#" onclick="logout()">Logout</a>
+                    </div>
+                </div>
+                <div class="cart-action" onclick="toggleCart()">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span>Cart</span>
+                    <div class="cart-badge" id="cart-count">0</div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- CATEGORY SUB-HEADER -->
+        <div class="category-header">
+            <div class="cat-item" onclick="filterCat('Mobiles')"><img
+                    src="https://rukminim1.flixcart.com/flap/128/128/image/22fddf3c7da4c4f4.png"
+                    alt="Mobiles"><span>Mobiles</span></div>
+            <div class="cat-item" onclick="filterCat('Fashion')"><img
+                    src="https://rukminim1.flixcart.com/flap/128/128/image/c12afc017e6f24cb.png"
+                    alt="Fashion"><span>Fashion</span></div>
+            <div class="cat-item" onclick="filterCat('Electronics')"><img
+                    src="https://rukminim1.flixcart.com/flap/128/128/image/69c6589653afdb9a.png"
+                    alt="Electronics"><span>Electronics</span></div>
+            <div class="cat-item" onclick="filterCat('Home')"><img
+                    src="https://rukminim1.flixcart.com/flap/128/128/image/ab7e2b022a4587dd.png"
+                    alt="Home"><span>Home</span></div>
+            <div class="cat-item" onclick="filterCat('Appliances')"><img
+                    src="https://rukminim1.flixcart.com/flap/128/128/image/0ff199d1bd27eb98.png"
+                    alt="Appliances"><span>TVs</span></div>
+            <div class="cat-item" onclick="filterCat('Beauty')"><img
+                    src="https://rukminim1.flixcart.com/flap/128/128/image/dff3f7adcf3a90c6.png"
+                    alt="Beauty"><span>Beauty</span></div>
+        </div>
+
+        <!-- HERO CAROUSEL -->
+        <div class="carousel-container">
+            <div class="carousel-slide active"
+                style="background-image: url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1600&q=80')">
+                <div class="slide-content">
+                    <h2>BIG BILLION DAYS</h2>
+                    <p>Sale is Live! 50-80% Off</p>
+                </div>
+            </div>
+            <div class="carousel-slide"
+                style="background-image: url('https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1600&q=80')">
+                <div class="slide-content">
+                    <h2>FASHION FESTIVAL</h2>
+                    <p>New Styles Added</p>
+                </div>
+            </div>
+            <button class="nav-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <button class="nav-btn next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <!-- MAIN LAYOUT -->
+        <main class="main-layout">
+            <!-- Sidebar -->
+            <aside class="sidebar-filter">
+                <h3>Filters</h3>
+                <div class="filter-group">
+                    <label>Price Range</label>
+                    <input type="range" id="price-range" min="100" max="200000" oninput="applyFilters()">
+                    <div class="price-labels">
+                        <span>₹100</span> <span id="max-price-disp">₹2,00,000</span>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <label>Customer Ratings</label>
+                    <div class="checkbox"><input type="checkbox" onchange="applyFilters()"> 4★ & above</div>
+                    <div class="checkbox"><input type="checkbox" onchange="applyFilters()"> 3★ & above</div>
+                </div>
+                <div class="filter-group">
+                    <label>Discount</label>
+                    <div class="checkbox"><input type="checkbox"> 50% or more</div>
+                    <div class="checkbox"><input type="checkbox"> 30% or more</div>
+                </div>
+            </aside>
+
+            <!-- Product Feed -->
+            <section class="product-feed">
+                <div class="feed-header">
+                    <h2>Showing <span id="product-count">0</span> Products</h2>
+                    <div class="sort-options">
+                        Sort By:
+                        <span class="active">Popularity</span>
+                        <span>Price -- Low to High</span>
+                        <span>Price -- High to Low</span>
+                    </div>
+                </div>
+                <div class="product-grid" id="product-grid"></div>
+            </section>
+        </main>
+    </div>
+
+    <!-- CART SIDEBAR (Hidden) -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>My Cart (<span id="sidebar-count">0</span>)</h3>
+            <button onclick="toggleCart()">×</button>
+        </div>
+        <div class="cart-body" id="cart-body"></div>
+        <div class="cart-footer">
+            <div class="price-row"><span>Total Amount</span> <span id="cart-total">₹0</span></div>
+            <button onclick="openCheckout()">PLACE ORDER</button>
+        </div>
+    </div>
+
+    <!-- CHECKOUT MODAL -->
+    <div class="modal" id="checkout-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Secure Checkout</h2>
+                <button onclick="closeModal('checkout-modal')">×</button>
+            </div>
+            <div class="payment-options">
+                <div class="pay-method" onclick="selectPay('upi')">
+                    <i class="fa-solid fa-qrcode"></i> UPI / QR
+                </div>
+                <div class="pay-method" onclick="selectPay('card')">
+                    <i class="fa-regular fa-credit-card"></i> Card
+                </div>
+                <div class="pay-method" onclick="selectPay('cod')">
+                    <i class="fa-solid fa-money-bill"></i> COD
+                </div>
+            </div>
+            <div id="payment-details-view" class="payment-details">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- AI CHAT BOT -->
+    <div class="ai-float" onclick="toggleChat()">
+        <i class="fa-solid fa-robot"></i>
+    </div>
+    <div class="chat-box" id="chat-box">
+        <div class="chat-header">Thread Intelligents <button onclick="toggleChat()">×</button></div>
+        <div class="chat-body" id="chat-body"></div>
+        <div class="chat-input">
+            <input type="text" id="ai-input" placeholder="Ask about products..." onkeypress="handleAiEnter(event)">
+            <button onclick="sendAiMsg()">➤</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
