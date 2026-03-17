@@ -1,43 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta http-equiv="refresh" content="0; url=https://clv-bussiness-platform-zzhhr9kdomzmzbcdn2cbdp.streamlit.app/" />
-    <title>Rayan Stores | Business Platform</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayan Stores | Premium Indian Textiles</title>
+    <!-- Redirect to Streamlit Backend after 3 seconds -->
+    <meta http-equiv="refresh" content="4; url=https://clv-bussiness-platform-zzhhr9kdomzmzbcdn2cbdp.streamlit.app/" />
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800;900&display=swap');
+
+        :root {
+            --primary: #cc0000;
+            --dark: #0a0a0a;
+            --accent: #ff3333;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
         body {
-            background-color: #0d0d0d;
-            color: #f0f0f0;
-            font-family: Arial, sans-serif;
+            background-color: var(--dark);
+            color: #fff;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0;
+            background: radial-gradient(circle at center, #1a0000 0%, #050505 100%);
         }
-        .container {
-            text-align: center;
-        }
-        .loader {
-            border: 4px solid #1a1a1a;
-            border-top: 4px solid #cc0000;
+
+        /* ── Animated Background ── */
+        .bg-glow {
+            position: absolute;
+            width: 40vw;
+            height: 40vw;
+            background: var(--primary);
+            filter: blur(150px);
+            opacity: 0.15;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
+            animation: pulse 8s infinite alternate;
+            z-index: 1;
         }
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+
+        @keyframes pulse {
+            0% { transform: scale(1) translate(-10%, -10%); }
+            100% { transform: scale(1.2) translate(10%, 10%); }
         }
+
+        /* ── Content Container ── */
+        .portal-card {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            padding: 60px 80px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 0, 0, 0.2);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── Typography ── */
+        .logo-main {
+            font-size: 3.5rem;
+            font-weight: 900;
+            letter-spacing: 5px;
+            margin-bottom: 5px;
+            background: linear-gradient(135deg, #fff 0%, #cc0000 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .tagline {
+            font-size: 1.1rem;
+            color: #aaa;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+        }
+
+        /* ── Entry Animation ── */
+        .connecting {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .loader-bar {
+            width: 200px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .loader-progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #cc0000, #ff4444);
+            animation: load 3.5s linear forwards;
+        }
+
+        @keyframes load {
+            0% { width: 0%; }
+            30% { width: 40%; }
+            70% { width: 85%; }
+            100% { width: 100%; }
+        }
+
+        .status-text {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* ── Direct Link ── */
+        .manual-entry {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: #444;
+        }
+
+        .manual-entry a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .manual-entry a:hover {
+            color: #fff;
+            text-shadow: 0 0 10px var(--primary);
+        }
+
+        /* ── Micro-Animations ── */
+        .decor-line {
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 0 auto 30px;
+            border-radius: 2px;
+        }
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Rayan Stores</h1>
-        <p>Connecting to AI Business Platform...</p>
-        <div class="loader"></div>
-        <p><a href="https://clv-bussiness-platform-zzhhr9kdomzmzbcdn2cbdp.streamlit.app/" style="color: #cc0000; text-decoration: none;">Click here if you are not redirected automatically</a></p>
+    <div class="bg-glow"></div>
+    
+    <div class="portal-card">
+        <div class="decor-line"></div>
+        <h1 class="logo-main">RAYAN STORES</h1>
+        <p class="tagline">Indian Textiles • AI Driven Shopping</p>
+
+        <div class="connecting">
+            <div class="loader-bar">
+                <div class="loader-progress"></div>
+            </div>
+            <p id="dynamic-status" class="status-text">Synchronizing Fabric Databases...</p>
+        </div>
+
+        <div class="manual-entry">
+            <p>Taking too long? <a href="https://clv-bussiness-platform-zzhhr9kdomzmzbcdn2cbdp.streamlit.app/">Enter Site Directly</a></p>
+        </div>
     </div>
+
+    <script>
+        const statuses = [
+            "Initializing Neural Network...",
+            "Loading High-Def Textiles...",
+            "Authenticating Rayan Cloud...",
+            "Connecting to AI Platform..."
+        ];
+        let i = 0;
+        const statusEl = document.getElementById('dynamic-status');
+        
+        setInterval(() => {
+            if (i < statuses.length) {
+                statusEl.innerText = statuses[i];
+                i++;
+            }
+        }, 1000);
+    </script>
 </body>
 </html>
