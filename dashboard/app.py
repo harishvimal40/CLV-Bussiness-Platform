@@ -77,9 +77,9 @@ LANG = {
 # PAGE CONFIG
 # =====================
 st.set_page_config(
-    page_title="Rayan Shopping",
+    page_title="Rayan Stores",
     layout="wide",
-    page_icon="🛒",
+    page_icon="🛍️",
     initial_sidebar_state="expanded"
 )
 
