@@ -84,132 +84,177 @@ st.set_page_config(
 )
 
 # =====================
-# PREMIUM BLACK & RED THEME CSS
+# FUTURISTIC GLASSMORHPISM DESIGN SYSTEM
 # =====================
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap');
 
-    /* ── Global ── */
+    /* ── Global Styles ── */
     html, body, [class*="css"] {
-        font-family: 'Inter', sans-serif;
+        font-family: 'Outfit', sans-serif;
     }
     .stApp {
-        background-color: #0d0d0d;
-        color: #f0f0f0;
+        background-color: #050505;
+        background-image: 
+            radial-gradient(circle at 20% 20%, rgba(204, 0, 0, 0.05) 0%, transparent 40%),
+            radial-gradient(circle at 80% 80%, rgba(204, 0, 0, 0.05) 0%, transparent 40%);
+        color: #ffffff;
     }
 
-    /* ── Sidebar ── */
+    /* ── Sidebar Glass ── */
     section[data-testid="stSidebar"] {
-        background: #111111 !important;
-        border-right: 2px solid #cc0000;
+        background: rgba(15, 15, 15, 0.8) !important;
+        backdrop-filter: blur(15px) !important;
+        border-right: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 10px 0 30px rgba(0,0,0,0.5);
     }
     section[data-testid="stSidebar"] * {
         color: #f0f0f0 !important;
     }
 
-    /* ── Navbar ── */
+    /* ── Modern Navbar ── */
     .nav-bar {
-        background: linear-gradient(90deg, #1a0000, #cc0000);
-        padding: 14px 28px;
-        border-radius: 8px;
-        margin-bottom: 20px;
+        background: rgba(26, 0, 0, 0.6);
+        backdrop-filter: blur(20px);
+        padding: 20px 35px;
+        border-radius: 20px;
+        margin-bottom: 30px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        box-shadow: 0 4px 15px rgba(204,0,0,0.4);
+        border: 1px solid rgba(204, 0, 0, 0.3);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
     }
     .nav-brand {
-        font-size: 1.8rem;
+        font-size: 2.2rem;
         font-weight: 900;
         color: #ffffff;
-        letter-spacing: 2px;
+        letter-spacing: -1px;
+        text-transform: uppercase;
     }
-    .nav-brand span { color: #ff4444; }
+    .nav-brand span { 
+        background: linear-gradient(135deg, #ff4444, #cc0000);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        text-shadow: 0 10px 20px rgba(204, 0, 0, 0.2);
+    }
     .nav-info {
         display: flex;
-        gap: 28px;
-        font-size: 14px;
+        gap: 35px;
+        font-size: 15px;
         font-weight: 600;
-        color: #ffe0e0;
+        color: #ccc;
     }
 
-    /* ── Hero Banner ── */
+    /* ── Attractive Hero Section ── */
     .hero {
-        background: linear-gradient(135deg, #1a0000 0%, #cc0000 50%, #1a0000 100%);
-        padding: 36px 40px;
-        border-radius: 12px;
+        background: linear-gradient(135deg, #1a0000 0%, #440000 50%, #1a0000 100%);
+        padding: 60px 50px;
+        border-radius: 30px;
         color: white;
-        margin-bottom: 24px;
-        box-shadow: 0 8px 32px rgba(204,0,0,0.3);
+        margin-bottom: 35px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
     }
-    .hero h1 { margin: 0; font-size: 2.2rem; font-weight: 900; }
-    .hero p  { margin: 8px 0 0; opacity: 0.9; font-size: 1rem; }
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: -50%; left: -50%; width: 200%; height: 200%;
+        background: radial-gradient(circle, rgba(204, 0, 0, 0.2) 0%, transparent 60%);
+        animation: rotate 20s linear infinite;
+    }
+    @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .hero-content { position: relative; z-index: 2; }
+    .hero h1 { margin: 0; font-size: 3.5rem; font-weight: 900; letter-spacing: -2px; line-height: 1; text-transform: uppercase; }
+    .hero p  { margin: 15px 0 0; opacity: 0.8; font-size: 1.2rem; font-weight: 400; letter-spacing: 1px; }
 
-    /* ── Product Card ── */
+    /* ── Glass Product Cards ── */
     .prod-card {
-        background: #1a1a1a;
-        border: 1px solid #2a2a2a;
-        padding: 16px;
-        border-radius: 10px;
+        background: rgba(25, 25, 25, 0.5);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        padding: 24px;
+        border-radius: 24px;
         text-align: center;
-        transition: all 0.25s ease;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         height: 100%;
     }
     .prod-card:hover {
-        border-color: #cc0000;
-        box-shadow: 0 6px 24px rgba(204,0,0,0.25);
-        transform: translateY(-4px);
+        border-color: rgba(204, 0, 0, 0.6);
+        background: rgba(35, 35, 35, 0.8);
+        box-shadow: 0 15px 45px rgba(204, 0, 0, 0.15), 0 0 20px rgba(204, 0, 0, 0.1);
+        transform: translateY(-12px) scale(1.02);
     }
     .prod-img {
-        height: 150px;
+        height: 180px;
+        width: 100%;
         object-fit: contain;
-        margin-bottom: 12px;
-        border-radius: 6px;
+        margin-bottom: 20px;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
     }
+    .prod-card:hover .prod-img { transform: scale(1.1); }
     .prod-name {
-        font-size: 13px;
-        font-weight: 600;
-        color: #f0f0f0;
-        height: 40px;
+        font-size: 16px;
+        font-weight: 700;
+        color: #ffffff;
+        height: 48px;
         overflow: hidden;
-        line-height: 1.4;
+        margin-bottom: 12px;
     }
-    .prod-rating { color: #ff9900; font-size: 12px; margin: 6px 0; }
-    .prod-price  { font-size: 18px; font-weight: 700; color: #ff4444; }
-    .prod-ship   { font-size: 11px; color: #666; margin-top: 4px; }
+    .prod-rating { color: #ffae00; font-size: 14px; margin-bottom: 12px; }
+    .prod-price  { font-size: 24px; font-weight: 900; color: #ff3333; text-shadow: 0 0 15px rgba(255, 51, 51, 0.3); }
 
-    /* ── Buttons ── */
+    /* ── High-End Buttons ── */
     .stButton > button {
-        background: linear-gradient(135deg, #cc0000, #ff2222) !important;
+        background: linear-gradient(135deg, #cc0000, #ff4444) !important;
         color: white !important;
         border: none !important;
-        border-radius: 6px !important;
-        font-weight: 600 !important;
-        box-shadow: 0 3px 10px rgba(204,0,0,0.3) !important;
+        border-radius: 50px !important;
+        padding: 12px 30px !important;
+        font-weight: 700 !important;
+        text-transform: uppercase !important;
+        letter-spacing: 1.5px !important;
+        transition: all 0.3s ease !important;
+        box-shadow: 0 10px 25px rgba(204, 0, 0, 0.4) !important;
     }
     .stButton > button:hover {
-        background: linear-gradient(135deg, #ff2222, #cc0000) !important;
-        box-shadow: 0 5px 18px rgba(204,0,0,0.5) !important;
+        background: linear-gradient(135deg, #ff4444, #cc0000) !important;
+        box-shadow: 0 15px 35px rgba(255, 68, 68, 0.5) !important;
+        transform: translateY(-3px) !important;
     }
 
-    /* ── Login Box ── */
-    .login-box {
-        background: #1a1a1a;
-        border: 1px solid #cc0000;
-        border-radius: 14px;
-        padding: 40px;
-        box-shadow: 0 8px 40px rgba(204,0,0,0.2);
-        text-align: center;
+    /* ── Glass Inputs ── */
+    .stTextInput > div > div > input {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-radius: 12px !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: white !important;
+        padding: 12px 20px !important;
     }
-    .login-box h2 { color: #cc0000; font-weight: 900; }
 
-    /* ── Receipt ── */
+    /* ── Stat Metrics ── */
+    [data-testid="metric-container"] {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        padding: 24px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    }
+    [data-testid="stMetricValue"] { font-size: 2.8rem !important; font-weight: 900 !important; color: #ff3333 !important; }
+
+    /* ── Receipt Re-design ── */
     .receipt {
-        background: #1a1a1a;
-        border: 2px dashed #cc0000;
-        border-radius: 12px;
-        padding: 32px;
+        background: rgba(15, 15, 15, 0.9);
+        border: 1px solid rgba(204, 0, 0, 0.5);
+        border-radius: 24px;
+        padding: 45px;
+        box-shadow: 0 25px 70px rgba(0,0,0,0.6);
+        max-width: 500px;
+        margin: auto;
     }
 </style>
 """, unsafe_allow_html=True)
